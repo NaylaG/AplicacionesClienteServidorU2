@@ -14,15 +14,16 @@ namespace Practica2
     public class Servidor: INotifyPropertyChanged
     {
         HttpListener listener;
-       public string Mensaje { get; set; }     
+        public string Mensaje { get; set; }
         public string Color { get; set; }
-    
+
+       
 
         Dispatcher dispatcher;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void OnPropetyChanged (string mensaje, string color)
+        private void OnPropetyChanged(string mensaje, string color)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(mensaje));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(color));
@@ -79,7 +80,7 @@ namespace Practica2
 
         private void Cambiar (string color, string mensaje)
         {
-
+          
             this.dispatcher.Invoke(() => Mensaje = mensaje) ;
             this.dispatcher.Invoke(() => Color = color);
             OnPropetyChanged("Mensaje", "Color");

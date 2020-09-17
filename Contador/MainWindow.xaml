@@ -1,0 +1,14 @@
+﻿<Window x:Class="Contador.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Contador"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <UniformGrid Background="Black" Columns="2" >
+        <TextBlock Text="{Binding ValorVerde}"  Foreground="Green" FontSize="200" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Text="{Binding ValorRojo}" Foreground="Red" FontSize="200" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+
+    </UniformGrid>
+</Window>

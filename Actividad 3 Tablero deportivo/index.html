@@ -1,0 +1,60 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Datos del Partido</title>
+  
+    <style>
+
+        html {
+            margin:0;
+            height: 100%;
+            width: 100%;
+            background-color: lightblue;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-family: Arial;
+            font-size: medium;
+        }
+       
+        h1 {
+            margin:0;
+            background-color: darkblue;
+            padding:10px;
+        }
+      
+        select{
+            margin:20px 10px;
+       
+        }
+       
+      
+    </style>
+
+</head>
+
+<body>
+<header>
+    <h1>Actividad 3: Tablero deportivo</h1>
+    <h3>Nayla Garcia Mireles</h3>
+
+</header>
+<main>
+    <h2>Datos del Partido</h2>
+    <form method="post" action="/actividad3">
+        <label>Nombre Equipo 1:</label><input name="nombre1" type="text" /><br />
+
+        <label>Nombre Equipo 2:</label><input name="nombre2" type="text" /><br />
+
+        <select name="tiempo">
+            <option value="Primer">Primer Tiempo</option>
+            <option value="Segundo">Segundo Tiempo</option>
+        </select><br />
+        <input type="submit" value="Enviar" />
+    </form>
+</main>
+</body>
+</html>
