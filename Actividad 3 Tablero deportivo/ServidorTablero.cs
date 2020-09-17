@@ -113,17 +113,19 @@ namespace Actividad_3_Tablero_deportivo
                 StreamReader stream = new StreamReader(contexto.Request.InputStream);
                 string variables = stream.ReadToEnd();
                 var datos = HttpUtility.ParseQueryString(variables);
-                if(datos["nombre1"]!=""&& datos["nombre2"] != "" && datos["tiempo"] != "")
+
+                if(datos["nombre1"]!="" && datos["nombre2"] != "" && datos["tiempo"] != "")
                 {
                     AgregarDatos(datos["nombre1"], datos["nombre2"], datos["tiempo"]);
+                    contexto.Response.StatusCode = 200;
+                    contexto.Response.Redirect("/actividad3/marcador");
                 }
                 else
                 {
                     contexto.Response.StatusCode = 400;
                 }
                
-                contexto.Response.StatusCode = 200;            
-                contexto.Response.Redirect("/actividad3/marcador");
+               
             }
             else if (url == "/actividad3/marcador" && contexto.Request.HttpMethod == "GET")
             {
