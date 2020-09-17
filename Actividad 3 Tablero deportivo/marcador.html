@@ -17,27 +17,31 @@
             font-family: Arial;
             font-size: medium;
         }
-
-        h1{
-            margin: 0;
-            background-color: darkblue;
-            padding: 10px;
+        body{
+            margin:0;
         }
-        h2{
-            color:darkblue;
+
+        h1 {
+            margin: 0;
+            background-color: #04062c;
+            padding: 20px;
+        }
+        h2, p {
+            color: #04062c;
         }
         select {
             margin: 20px 10px;
         }
-        input{
-            margin:20px;
-            height:50px;
-            width:35%;
-            background-color:darkblue;
-            color:white;
-            font-size:large;
-            font-weight:bold;               
+        input {
+            margin: 20px;
+            height: 50px;
+            width: 35%;
+            background-color:darkblue ;
+            color: white;
+            font-size: large;
+            font-weight: bold;
         }
+      
            
     </style>
 </head>
@@ -50,6 +54,7 @@
             <input type="submit" name="goles" value="Equipo 1" />
             <input type="submit" name="goles" value="Equipo 2" /><br />
             <h2>Tiempo</h2>          
+            <p>El tiempo solo puede detenerse pasados los 45 minutos del tiempo correspondiente</p>
             <input type="submit" name="detener" value="Detener" id="detener"/>
 
         </form>

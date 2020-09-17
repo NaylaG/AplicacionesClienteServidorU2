@@ -190,10 +190,15 @@ namespace Actividad_3_Tablero_deportivo
         {
             dispatcher.BeginInvoke(new Action(() => {
               //solo cuando es mayor de 45 minutos puede detener el tiempo
-                if (time >= 2700)
+                if (time >= 2700 && Valores.Tiempo=="Primer Tiempo")
                 {
                     Timer.Stop();
                 }
+                //despues de los 90
+                else if(time>=5400 && Valores.Tiempo== "Segundo Tiempo")
+                {
+                    Timer.Stop();
+                }    
               
             }));
 
