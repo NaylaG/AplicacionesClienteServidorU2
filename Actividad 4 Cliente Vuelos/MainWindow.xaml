@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Actividad_4_Cliente_Vuelos"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="870">
+        Title="MainWindow" Height="550" Width="800">
+    <Window.Resources>
+        <Style x:Key="DataGridStyle1" TargetType="{x:Type DataGrid}">
+            <Setter Property="ColumnHeaderStyle" Value="{DynamicResource ColumnHeaderStyle1}"/>
+        </Style>
+
+        <Style x:Key="ColumnHeaderStyle1" TargetType="DataGridColumnHeader">
+
+            <Setter Property="Background" Value="#FF03003E"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="12" />
+            <!--<Setter Property="FontFamily" Value="Arial"></Setter>-->
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Padding" Value="10,5"></Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="ToolTip" Value="Click to sort."/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <DockPanel >
+        
         <DockPanel.Background>
             <ImageBrush ImageSource="images/fondo1.png"/>
         </DockPanel.Background>
@@ -17,7 +39,7 @@
         </Border>
         <UniformGrid Columns="3" DockPanel.Dock="Top"  Margin="30,15" >
             <UniformGrid.Background>
-                <SolidColorBrush Color="#FF2DCCFB" Opacity="0.5">
+                <SolidColorBrush Color="#FF3C9CEA" Opacity="0.8">
 
                 </SolidColorBrush>
             </UniformGrid.Background>
@@ -41,8 +63,8 @@
                 <TextBox Name="txtVuelo" Text="{Binding Vuelo}"></TextBox>
                 <Label>Estado:</Label>
                <!--<TextBox Text="{Binding Estado}" ></TextBox>-->
-                <ComboBox Name="cmbEstados" Text="{Binding Estado}" SelectedIndex="0">
-                    <ComboBoxItem>A TIEMPO</ComboBoxItem>
+                <ComboBox Name="cmbEstados"  Text="{Binding Estado}" >
+                    <ComboBoxItem >A TIEMPO</ComboBoxItem>
                     <ComboBoxItem >ABORDANDO</ComboBoxItem>
                     <ComboBoxItem>CANCELADO</ComboBoxItem>
                     <ComboBoxItem>RETRASADO</ComboBoxItem>
@@ -53,9 +75,7 @@
                 <Button Height="50" Background="Transparent" BorderThickness="0" Name="btnAgregar" Click="btnAgregar_Click" >
                     <Image Source="images/agregar.png"></Image>
                 </Button>
-                <Button Height="52" BorderThickness="0" Background="Transparent" Name="btnEditar" Click="btnEditar_Click" >
-                    <Image Source="images/editar.png"></Image>
-                </Button>
+                
 
             </StackPanel>
                  <!--<DataGrid Name="dtgVuelos" ItemsSource="{Binding ListaVuelos}" >
@@ -69,19 +89,30 @@
                     <Image  Source="images/eliminar.png"></Image>
                 </Button>
                 <!--<Button   Content="Actualizar" Name="btnActualiza" Click="btnActualiza_Click"></Button>-->
-
+                <Button Height="52" BorderThickness="0" Background="Transparent" Name="btnEditar" Click="btnEditar_Click" >
+                    <Image Source="images/editar.png"></Image>
+                </Button>
             </UniformGrid>
             
             <DockPanel  Margin="20">
-                <Label DockPanel.Dock="Top" Margin="10,0" FontSize="18" Foreground="White" Padding="15,5" FontWeight="DemiBold">
-                    <Label.Background>
+                <Label DockPanel.Dock="Top" Background="#FF06013A" Margin="10,0" FontSize="18" Foreground="White" Padding="15,5" FontWeight="DemiBold">
+                    <!--<Label.Background>
                         <SolidColorBrush Color="#FF020C51" Opacity="0.9">
 
                         </SolidColorBrush>
-                    </Label.Background>
+                    </Label.Background>-->
                     Vuelos</Label>
-                <DataGrid Name="dtgVuelos" Margin="10"  SelectedItem="{Binding DatosVuelo}" Background="#FF9FDBF7" BorderBrush="#FF2DCCFB">
-
+                <DataGrid Name="dtgVuelos" Margin="10"  Background="#FF90D2DA"   
+                          AlternatingRowBackground="#FF90D2DA"  Style="{DynamicResource DataGridStyle1}" 
+                          RowBackground="#FFE4F9F7" AutoGenerateColumns="False"  CanUserAddRows="False" 
+                           ColumnHeaderHeight="30"  CanUserReorderColumns="False"
+                          CanUserResizeColumns="False" CanUserResizeRows="False" IsReadOnly="True" BorderBrush="#FF9EC4EA" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn  Header="Hora" Binding="{Binding Hora}" Width="100"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Destino" Binding="{Binding Destino}" Width="200"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Vuelo" Binding="{Binding Vuelo}" Width="150"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Estado" Binding="{Binding Estado}" Width="160"></DataGridTextColumn>
+                    </DataGrid.Columns>
                 </DataGrid>
             </DockPanel>
           
